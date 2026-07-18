@@ -44,16 +44,26 @@ function playGame() {
                     humanScore++;
                 }
         }
+
+        if (humanScore > 4 || computerScore > 4) {
+            if (humanScore > 4) {
+                document.querySelector(".score").textContent = `You won!: ${humanScore} - CPU's score: ${computerScore}`;
+            } else {
+                document.querySelector(".score").textContent = `You lost!: ${humanScore} - CPU's score: ${computerScore}`;
+            }
+        } else {
+            document.querySelector(".score").textContent = `Your score: ${humanScore} - CPU's score: ${computerScore}`;
+        }
     }
 
     document.querySelector(".rock").addEventListener("click", (event) => {
-        playRound("rock", getComputerChoice());
+        if (humanScore < 5 && computerScore < 5) playRound("rock", getComputerChoice());
     })
     document.querySelector(".paper").addEventListener("click", (event) => {
-        playRound("paper", getComputerChoice());
+        if (humanScore < 5 && computerScore < 5) playRound("paper", getComputerChoice());
     })
     document.querySelector(".scissors").addEventListener("click", (event) => {
-        playRound("scissors", getComputerChoice());
+        if (humanScore < 5 && computerScore < 5) playRound("scissors", getComputerChoice());
     })
     
 }
